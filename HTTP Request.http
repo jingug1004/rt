@@ -1,0 +1,55 @@
+# http://localhost:8080/test/testRequestBody
+GET http://localhost:8080/test/testReqBody
+Content-Type: application/json
+
+{
+  "id": 123,
+  "message": "sdfs"
+}
+
+###
+GET http://localhost:8080/test/testRespBody
+Content-Type: application/json
+
+###
+GET http://localhost:8080/test/testRespEntity
+Content-Type: application/json
+
+###
+GET http://localhost:8080/todo/test
+Content-Type: application/json
+
+
+###
+//GET http://localhost:8080/todo
+//Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MDI4OTE4MjdjYjAwZWM4MDE3Y2IwMTAxNDZiMDAwMCIsImlzcyI6ImRlbW8gYXBwIiwiaWF0IjoxNjM1MDQxNDIwLCJleHAiOjE2MzUxMjc4MjB9.ewJifq8m0DicEqPWkYu_CJGKdMg7z6PUnP9zNYIAg-tw2rUPaS9tBWNwgi45EOVQu14-CC490JEe6G-NEMDM1Q
+//Content-Type: application/json
+
+###
+POST localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "email": "a@a.a",
+  "username": "user1",
+  "password": "1"
+}
+
+###
+POST localhost:8080/auth/signin
+Content-Type: application/json
+
+{
+  "email": "a@a.a",
+  "password": "1"
+}
+
+###
+POST http://localhost:8080/todo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MDI4OTE4MjdjYzFmNjEzMDE3Y2MxZmM2MmI4MDAwMCIsImlzcyI6ImRlbW8gYXBwIiwiaWF0IjoxNjM1MzQyMTE5LCJleHAiOjE2MzU0Mjg1MTl9.OFWWKNL5fsP1duh-aimmmex_mY1qd0Iw4fCnkOJSpLKNZuYESw38LccZnyaw5mdYjSfaNBDbNElrt_RQ0Ge2Gg
+
+{
+  "title": "공부하기 3"
+}
+
