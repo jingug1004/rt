@@ -1,0 +1,8 @@
+###
+DELETE http://localhost:8080/todo
+Content-Type: application/json
+
+{
+  "id": "402891827f0cf35e017f0cfc21550002"
+}
+

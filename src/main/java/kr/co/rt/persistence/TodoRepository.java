@@ -4,6 +4,8 @@ import kr.co.rt.model.TodoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by A on 2022-02-13 오전 12:40
  * rt / kr.co.rt.persistence
@@ -25,6 +27,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TodoRepository extends JpaRepository<TodoEntity, String> {
-
-
+    List<TodoEntity> findByUserId(String userId);
 }

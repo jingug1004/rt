@@ -33,11 +33,19 @@ public class TodoDTO {
 
     private String id;
     private String title;
-    private boolean done;
+    private Boolean done;
 
     public TodoDTO(final TodoEntity todoEntity) {
         this.id = todoEntity.getId();
         this.title = todoEntity.getTitle();
         this.done = todoEntity.getDone();
+    }
+
+    public static TodoEntity todoEntity(final TodoDTO todoDTO) {
+        return TodoEntity.builder()
+                .id(todoDTO.getId())
+                .title(todoDTO.getTitle())
+                .done(todoDTO.getDone())
+                .build();
     }
 }

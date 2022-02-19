@@ -42,7 +42,7 @@ public class TodoEntity {
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy="uuid")
     private String id;
-    private String useId;
+    private String userId;
     private String title;
     private Boolean done;
 }
