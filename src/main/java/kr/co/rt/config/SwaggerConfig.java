@@ -28,7 +28,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  * @see
  * @since 2018/04/01
  */
-
+// http://localhost:8080/swagger-ui/index.html#/
 @Configuration
 @EnableWebMvc
 public class SwaggerConfig {
