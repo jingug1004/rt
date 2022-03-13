@@ -26,5 +26,9 @@ These additional references should also help you:
 ### 프론트 백 통합시
 프론트 서버 만들었을 시
 
-* kr/co/rt/config/WebMvcConfig.java:12 .allowedOrigins("http://localhost:3000") 추가
- 
+* kr/co/rt/config/WebMvcConfig.java:12 .allowedOrigins("http://localhost:3000") 추가.
+* /front-end/ app-config.js에 Host 주소 변경.
+
+백엔드 서버 현장 패키지에 맞게
+* kr/co/rt/security/TokenProvider.java
+return Jwts.builder()   .setIssuer("rt") 변경!!!

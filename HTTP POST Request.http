@@ -39,3 +39,30 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MDI4OTE4MjdjYzFmNjEzMDE3Y
   "title": "공부하기 3"
 }
 
+###
+POST http://localhost:8080/todo
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI0MDI4OTE4MjdmODJkYTIyMDE3ZjgyZGIzNTZlMDAwMCIsImlzcyI6InJ0IiwiaWF0IjoxNjQ3MTY5OTAwLCJleHAiOjE2NDcyNTYzMDB9.HdqzvTzJT5roR9ClbWpiHhsFKQQeAu9POTr61be7hhzju4n5M8rRa7BzZKizFJ_Hz8be5R5PjjCo6o_CQbfTXA
+
+{
+  "title": "공부하기 3"
+}
+
+###
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "email": "a2@a.a",
+  "username": "a2",
+  "password": 2
+}
+
+###
+POST http://localhost:8080/auth/signin
+Content-Type: application/json
+
+{
+  "email": "a2@a.a",
+  "password": 2
+}

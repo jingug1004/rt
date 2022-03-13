@@ -1,6 +1,5 @@
 package kr.co.rt.dto;
 
-import kr.co.rt.model.TodoEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

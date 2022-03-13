@@ -6,6 +6,7 @@ import kr.co.rt.model.TodoEntity;
 import kr.co.rt.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -47,15 +48,20 @@ public class TodoController {
         return ResponseEntity.ok().body(responseDTO);
     }
 
+    /**
+     * 투두(할 일) 생성
+     *
+     * @param userId  JWT Bearer 토큰 인증된 유저 아이디
+     * @param todoDTO 단일 투두
+     * @return 투두 리스트
+     */
     @PostMapping
-    public ResponseEntity<?> createTodo(@RequestBody TodoDTO todoDTO) {
+    public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO todoDTO) {
         try {
-            String temporaryUserId = "temporary-user";
-
             TodoEntity todoEntity = TodoDTO.todoEntity(todoDTO);
 
             todoEntity.setId(null);
-            todoEntity.setUserId(temporaryUserId);
+            todoEntity.setUserId(userId);
             todoEntity.setDone(false);
 
             List<TodoEntity> entities = todoService.create(todoEntity);
@@ -71,11 +77,15 @@ public class TodoController {
         }
     }
 
+    /**
+     * 투두 리스트 조회
+     *
+     * @param userId JWT Bearer 토큰 인증된 유저 아이디
+     * @return 투두 리스트
+     */
     @GetMapping
-    public ResponseEntity<?> retrieveTodoList() {
-        String temporaryUserId = "temporary-user";
-
-        List<TodoEntity> entities = todoService.retrieve(temporaryUserId);
+    public ResponseEntity<?> retrieveTodoList(@AuthenticationPrincipal String userId) {
+        List<TodoEntity> entities = todoService.retrieve(userId);
         List<TodoDTO> dtos = entities.stream().map(TodoDTO::new).collect(Collectors.toList());
 
         ResponseDTO<TodoDTO> responseDTO = ResponseDTO.<TodoDTO>builder().data(dtos).build();
@@ -83,13 +93,18 @@ public class TodoController {
         return ResponseEntity.ok().body(responseDTO);
     }
 
+    /**
+     * 투두 수정
+     *
+     * @param userId  JWT Bearer 토큰 인증된 유저 아이디
+     * @param todoDTO 단일 투두
+     * @return 투두 리스트
+     */
     @PutMapping
-    public ResponseEntity<?> updateTodo(@RequestBody TodoDTO todoDTO) {
-        String temporaryUserId = "temporary-user";
-
+    public ResponseEntity<?> updateTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO todoDTO) {
         TodoEntity todoEntity = TodoDTO.todoEntity(todoDTO);
 
-        todoEntity.setUserId(temporaryUserId);
+        todoEntity.setUserId(userId);
 
         List<TodoEntity> entities = todoService.update(todoEntity);
         List<TodoDTO> dtos = entities.stream().map(TodoDTO::new).collect(Collectors.toList());
@@ -99,14 +114,19 @@ public class TodoController {
         return ResponseEntity.ok().body(responseDTO);
     }
 
+    /**
+     * 투두 삭제
+     *
+     * @param userId  JWT Bearer 토큰 인증된 유저 아이디
+     * @param todoDTO 단일 투두
+     * @return 투두 리스트
+     */
     @DeleteMapping
-    public ResponseEntity<?> deleteTodo(@RequestBody TodoDTO todoDTO) {
+    public ResponseEntity<?> deleteTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO todoDTO) {
         try {
-            String temporaryUserId = "temporary-user";
-
             TodoEntity todoEntity = TodoDTO.todoEntity(todoDTO);
 
-            todoEntity.setUserId(temporaryUserId);
+            todoEntity.setUserId(userId);
 
             List<TodoEntity> entities = todoService.delete(todoEntity);
             List<TodoDTO> dtos = entities.stream().map(TodoDTO::new).collect(Collectors.toList());

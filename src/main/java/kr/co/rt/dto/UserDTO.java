@@ -1,15 +1,9 @@
-package kr.co.rt.model;
+package kr.co.rt.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * Created by A on 2022-02-11 오후 8:23
@@ -34,15 +28,10 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
-@Table(name = "todo")
-public class TodoEntity {
-
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+public class UserDTO {
     private String id;
-    private String userId;
-    private String title;
-    private Boolean done;
+    private String password;
+    private String username;
+    private String email;
+    private String token;
 }
