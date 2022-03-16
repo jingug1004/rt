@@ -28,6 +28,7 @@ These additional references should also help you:
 
 * kr/co/rt/config/WebMvcConfig.java:12 .allowedOrigins("http://localhost:3000") 추가.
 * /front-end/ app-config.js에 Host 주소 변경.
+* pages/api/hello.js call 펑션에서 localhost:3000 직접 변경해야 함.
 
 백엔드 서버 현장 패키지에 맞게
 * kr/co/rt/security/TokenProvider.java
