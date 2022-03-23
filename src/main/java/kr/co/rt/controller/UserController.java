@@ -53,7 +53,7 @@ public class UserController {
      * @param userDTO 회원 가입 정보
      * @return 회원 가입된 정보
      */
-    @PostMapping("/signup")
+    @PostMapping("/signUp")
     public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO) {
         try {
             UserEntity user = UserEntity.builder()
